@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+// https://saasykit.com/blog/how-to-generate-documentation-for-your-laravel-project
+class JobController extends Controller
+{
+  /**
+   * @desc   Shows all jobs.
+   * 
+   * @route  GET /jobs
+   */
+  public function index()
+  {
+    $title = 'Available Jobs8';
+    $jobs = [
+      'Software Engineer',
+      'Web Developer',
+      'Database Admin',
+      'Data Scientist',
+      'Systems Analyst5',
+    ];
+    return view('jobs/index', compact('title', 'jobs'));
+  }
+  /**
+   * @desc   Shows the create job ad form.
+   * 
+   * @route  GET /jobs/create
+   */
+  public function create()
+  {
+    return view('jobs.create');
+  }
+  /**
+   * @desc   Stores a new job ad.
+   * 
+   * @route  POST /jobs
+   */
+  public function store(Request $request)
+  {
+    $title = $request->input('title');
+    $description = $request->input('description');
+    return "Title: $title, Description: $description";
+  }
+  /**
+   * @desc   Shows a single job.
+   * 
+   * @route  GET /jobs/{id}
+   */
+  public function show(string $id)
+  {
+    return "Showing job $id";
+  }
+  /**
+   * @desc   Shows the form for editing a job ad.
+   * 
+   * @route  GET /jobs/{id}/edit
+   */
+  public function edit(string $id)
+  {
+    return "Edit job $id";
+  }
+  /**
+   * @desc   Updates a job ad.
+   * 
+   * @route  PUT /jobs/{id}
+   */
+  public function update(Request $request, string $id)
+  {
+    return "Update job $id";
+  }
+  /**
+   * @desc   Deletes a job ad.
+   * 
+   * @route  DELETE /jobs/{id}
+   */
+  public function destroy(string $id)
+  {
+    return "Delete job $id";
+  }
+  /**
+   * @desc   Saves a job ad to favorites.
+   * 
+   * @route  POST /jobs/{id}/save
+   */
+  public function save(string $id): string
+  {
+    return "Save job $id";
+  }
+}
