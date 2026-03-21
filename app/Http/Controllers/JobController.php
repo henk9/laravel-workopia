@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 // https://saasykit.com/blog/how-to-generate-documentation-for-your-laravel-project
 class JobController extends Controller
@@ -12,7 +13,7 @@ class JobController extends Controller
    * 
    * @route  GET /jobs
    */
-  public function index()
+  public function index(): View
   {
     $title = 'Available Jobs8';
     $jobs = [
@@ -29,7 +30,7 @@ class JobController extends Controller
    * 
    * @route  GET /jobs/create
    */
-  public function create()
+  public function create(): View
   {
     return view('jobs.create');
   }
@@ -38,7 +39,7 @@ class JobController extends Controller
    * 
    * @route  POST /jobs
    */
-  public function store(Request $request)
+  public function store(Request $request): string
   {
     $title = $request->input('title');
     $description = $request->input('description');
@@ -49,7 +50,7 @@ class JobController extends Controller
    * 
    * @route  GET /jobs/{id}
    */
-  public function show(string $id)
+  public function show(string $id): string
   {
     return "Showing job $id";
   }
@@ -58,7 +59,7 @@ class JobController extends Controller
    * 
    * @route  GET /jobs/{id}/edit
    */
-  public function edit(string $id)
+  public function edit(string $id): string
   {
     return "Edit job $id";
   }
@@ -67,7 +68,7 @@ class JobController extends Controller
    * 
    * @route  PUT /jobs/{id}
    */
-  public function update(Request $request, string $id)
+  public function update(Request $request, string $id): string
   {
     return "Update job $id";
   }
@@ -76,7 +77,7 @@ class JobController extends Controller
    * 
    * @route  DELETE /jobs/{id}
    */
-  public function destroy(string $id)
+  public function destroy(string $id): string
   {
     return "Delete job $id";
   }
