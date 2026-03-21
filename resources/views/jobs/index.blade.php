@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+Available Jobs
+@endsection
+
 @section('content')
 <h1>{{ $title }}</h1>
 <ul>
