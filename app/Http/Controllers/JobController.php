@@ -32,7 +32,7 @@ class JobController extends Controller
    */
   public function create(): View
   {
-    return view('jobs.create');
+    return view('jobs/create');
   }
   /**
    * @desc   Stores a new job ad.
@@ -50,9 +50,9 @@ class JobController extends Controller
    * 
    * @route  GET /jobs/{id}
    */
-  public function show(string $id): string
+  public function show(string $id): View
   {
-    return "Showing job $id";
+    return view('jobs/show');
   }
   /**
    * @desc   Shows the form for editing a job ad.
