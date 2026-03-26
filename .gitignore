@@ -8,6 +8,7 @@
 /.nova
 /.phpunit.cache
 /.zed
+/_theme_files
 /auth.json
 /node_modules
 /public/build
