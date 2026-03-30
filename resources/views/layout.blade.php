@@ -10,11 +10,14 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- ^^ https://cdnjs.com - font-awesome @ 7.0.1 /> -->
   @vite('resources/css/app.css')
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
   <title>{{$title ?? 'Workopia | Find or List a Job'}}</title>
 </head>
 
 <body class="bg-gray-100">
   <x-header />
+  @if(request()->is('/'))
+  <x-hero />@endif
   <main class="container mx-auto p-4 mt-4">
     {{ $slot }}
   </main>
