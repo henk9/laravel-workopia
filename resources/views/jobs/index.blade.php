@@ -1,5 +1,5 @@
 <x-layout>
-  <h1>{{ $jobsPageTitle }}</h1>
+  <h1>Available Jobs right now</h1>
   <ul>
     @forelse($jobs as $job)
     <li>{{$job['title']}} – {{$job['description']}}</li>

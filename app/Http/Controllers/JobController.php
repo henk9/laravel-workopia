@@ -16,9 +16,8 @@ class JobController extends Controller
    */
   public function index(): View
   {
-    $jobsPageTitle = 'Available Jobs at Workopia';
     $jobs = Job::all();
-    return view('jobs/index', compact('jobsPageTitle', 'jobs'));
+    return view('jobs/index')->with('jobs', $jobs);
   }
   /**
    * @desc   Shows the create job ad form.
