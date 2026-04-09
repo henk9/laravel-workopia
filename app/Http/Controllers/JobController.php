@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Job;
 
 // https://saasykit.com/blog/how-to-generate-documentation-for-your-laravel-project
 class JobController extends Controller
@@ -15,14 +16,8 @@ class JobController extends Controller
    */
   public function index(): View
   {
-    $title = 'Available Jobs8';
-    $jobs = [
-      'Software Engineer',
-      'Web Developer',
-      'Database Admin',
-      'Data Scientist',
-      'Systems Analyst5',
-    ];
+    $title = 'Available Jobs';
+    $jobs = Job::all();
     return view('jobs/index', compact('title', 'jobs'));
   }
   /**
