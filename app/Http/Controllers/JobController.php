@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Job;
 
 // https://saasykit.com/blog/how-to-generate-documentation-for-your-laravel-project
@@ -33,11 +34,15 @@ class JobController extends Controller
    * 
    * @route  POST /jobs
    */
-  public function store(Request $request): string
+  public function store(Request $request): RedirectResponse
   {
     $title = $request->input('title');
     $description = $request->input('description');
-    return "Title: $title, Description: $description";
+    Job::create([
+      'title' => $title,
+      'description' => $description
+    ]);
+    return redirect()->route('jobs.index');
   }
   /**
    * @desc   Shows a single job.
