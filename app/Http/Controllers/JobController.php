@@ -44,9 +44,9 @@ class JobController extends Controller
    * 
    * @route  GET /jobs/{id}
    */
-  public function show(string $id): View
+  public function show(Job $job): View
   {
-    return view('jobs/show');
+    return view('jobs/show')->with('job', $job);
   }
   /**
    * @desc   Shows the form for editing a job ad.
